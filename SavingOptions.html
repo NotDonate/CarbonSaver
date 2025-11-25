@@ -2,41 +2,86 @@
 
 <html>
 
+
+
 <head>
     <title>
         Carbon Saver
     </title>
 
-
+<!--CSS contained in the style tag, some inline styling done within html tags-->
 <style>
     *{
-        text-decoration: none;
+    text-decoration: none;
     }
+    body{
+        height: auto;
+    }
+    header{
+        text-align: center; background-color: green; font-size: large; padding: 5%;
+    }
+
+
+    /* This is the CSS for the navigation bar */
     .navigationbar{
         background: linear-gradient(to right, green, cyan); 
     }
     .navigationbardiv{
         display: flex; align-items: center; justify-content: flex-end; padding-right: 15px;
     }
-    li{
+    .options{
         list-style: none; display: inline-block; padding-left: 10px; padding-right: 10px; font-size: larger;
         font-weight: bold;
     }
-</style>
 
+    /* This is the CSS for the main body's structure */
+    .container{
+        display: flex; border: solid black; height: auto;
+    }
+    /* Left side structure */
+    .leftside{
+        border: 1px solid black; width: 25%; height: auto; display: flex;
+    }
+
+    /* Right side structure */
+    .rightside{
+        border: 1px solid black; width: 75%; height: auto; display: flex;
+    }
+
+</style>
 </head>
+
+
+
 <body>
+
+    <header>
+        Logo
+    </header>
+
     <nav class="navigationbar">
         <div class="navigationbardiv">
             <ul>
-                <li><a href="#" style="color: white;">Option1</a></li>
-                <li><a href="#" style="color: white;">Option2</a></li>
-                <li><a href="#" style="color: white;">Option3</a></li>
-                <li><a href="#" style="color: white;">Option4</a></li>
+                <li class="options"><a href="#" style="color: white;">Option1</a></li>
+                <li class="options"><a href="#" style="color: white;">Option2</a></li>
+                <li class="options"><a href="#" style="color: white;">Option3</a></li>
+                <li class="options"><a href="#" style="color: white;">Option4</a></li>
             </ul>
         </div>
     </nav>
 
+    <div class="container">
+
+        <div class="leftside">
+            Left
+        </div>
+        <div class="rightside">
+            right
+        </div>
+    </div>
+
 </body>
+
+
 
 </html>
