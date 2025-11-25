@@ -12,19 +12,19 @@
 <!--CSS contained in the style tag, some inline styling done within html tags-->
 <style>
     *{
-    text-decoration: none;
+    text-decoration: none; border-radius: 5px;
     }
     body{
         height: auto;
     }
     header{
-        text-align: center; background-color: green; font-size: large; padding: 5%;
+        text-align: center; background-color: green; font-size: large; padding: 5%; border-radius: 0px;
     }
 
 
     /* This is the CSS for the navigation bar */
     .navigationbar{
-        background: linear-gradient(to right, green, cyan); 
+        background: linear-gradient(to right, green, cyan); border-radius: 0px;
     }
     .navigationbardiv{
         display: flex; align-items: center; justify-content: flex-end; padding-right: 15px;
@@ -36,16 +36,16 @@
 
     /* This is the CSS for the main body's structure */
     .container{
-        display: flex; border: solid black; height: auto;
+        display: flex; height: auto;
     }
     /* Left side structure */
     .leftside{
-        border: 1px solid black; width: 25%; height: auto; display: flex;
+        width: 25%; height: auto; min-height: 500px; 
     }
 
     /* Right side structure */
     .rightside{
-        border: 1px solid black; width: 75%; height: auto; display: flex;
+        width: 75%; height: auto; min-height: 500px;
     }
 
 </style>
@@ -73,11 +73,23 @@
     <div class="container">
 
         <div class="leftside">
-            Left
+            <div style="border: 1px solid black; min-height: 200px; width: 90%; margin: auto; margin-top: 10%; height: auto;">
+                <header style="font-weight: bold;">Purpose of this page</header>
+                <ul>
+                    <li>1</li>
+                </ul>
+            </div>
+            <div style="border: 1px solid black; min-height: 120px; width: 90%; margin: auto; margin-top: 10%; margin-bottom: 10%; height: auto;">
+                <header style="font-weight: bold;">Not Recommended</header>
+            </div>
         </div>
+
         <div class="rightside">
-            right
+            <div style="border: 1px solid black; min-height: 220px; width: 90%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: auto;">
+                <header style="font-weight: bold;">Recommended</header>
+            </div>
         </div>
+
     </div>
 
 </body>
