@@ -18,10 +18,10 @@
         height: auto;
     }
     header{
-        text-align: center; background-color: green; font-size: large; padding: 5%; border-radius: 0px;
+        text-align: center; background-color: green; font-size: large; padding: 5%; border-radius: 0px; font-family: Georgia, 'Times New Roman', Times, serif;
     }
     footer{
-        background-color: lightblue; padding: 5%; border-radius: 0px;
+        background-color: lightblue; border-radius: 0px; padding: 2%;
     }
 
 
@@ -45,10 +45,16 @@
     .leftside{
         width: 25%; height: auto; min-height: 500px; 
     }
+    .outputtedbadoptions{
+        width: 96%; height: 85px; margin: 5px; border: 1px solid black;
+    }
 
     /* Right side structure */
     .rightside{
         width: 75%; height: auto; min-height: 500px;
+    }
+    .outputtedoptions{
+        width: 98%; height: 85px; margin: 5px; border: 1px solid black;
     }
 
 </style>
@@ -76,6 +82,7 @@
     <div class="container">
 
         <div class="leftside">
+
             <div style="border: 1px solid black; min-height: 200px; width: 90%; margin: auto; margin-top: 10%; height: auto;">
                 <header style="font-weight: bold;">Purpose of this page</header>
                 <ul>
@@ -86,14 +93,18 @@
                     <li>Carbon saving options that we do not recommend will be stored in the section titled 'Not Recommended'.</li>
                 </ul>
             </div>
+
             <div style="border: 1px solid black; min-height: 120px; width: 90%; margin: auto; margin-top: 10%; margin-bottom: 10%; height: auto;">
                 <header style="font-weight: bold;">Not Recommended</header>
+                <div id="dontrecommend"></div>
             </div>
+
         </div>
 
         <div class="rightside">
             <div style="border: 1px solid black; min-height: 220px; width: 90%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: auto;">
                 <header style="font-weight: bold;">Recommended</header>
+                <div id="recommend"></div>
             </div>
         </div>
 
@@ -102,6 +113,31 @@
     <footer>
         Carbon Saver
     </footer>
+
+    <!--Javascript-->
+    <script>
+        //Recieves data from other webpage and orders them from best to worst in an array
+
+
+        //Dynamically loads sections with carbon saving options
+        let notRecommendedOptions = ['test1','test2','a','b','c','d','e','f'];
+        for(let i = 0; i<notRecommendedOptions.length; i++){
+            const notRecommendedContainer = document.getElementById('dontrecommend');
+            const showOption = document.createElement('div')
+            showOption.className = 'outputtedbadoptions';
+            showOption.textContent = notRecommendedOptions[i];
+            notRecommendedContainer.appendChild(showOption);
+        }
+
+        let orderedOptions = ['Insulation','Solar Panels','a','b','c','d','e','f'];
+        for(let i = 0; i<orderedOptions.length; i++){
+            const recommendedContainer = document.getElementById('recommend');
+            const showOption = document.createElement('div');
+            showOption.className = 'outputtedoptions';
+            showOption.textContent = orderedOptions[i];
+            recommendedContainer.appendChild(showOption);
+        }
+    </script>
 
 </body>
 
