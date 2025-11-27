@@ -3,7 +3,7 @@ body{
     max-width: 75rem;
     margin: auto;
     height: 100vh;
-    background-color: #caffe5;
+    background-color: white;
 }
 
 header{
@@ -114,4 +114,5 @@ section {
     }
 
 }
+
 
