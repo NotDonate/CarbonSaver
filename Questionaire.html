@@ -6,10 +6,17 @@
         </title>
         <link rel="stylesheet" href="Questionaire.css">
         <style>
+            body {
+                background-color: #caffe5;
+            }
             label {
                 font-family: 'Times New Roman', serif;
                 font-size: 1.2rem;
                 color: #333333;
+            }
+            h1 {
+                text-align: center;
+                color: rgb(0, 78, 35)
             }
 
             .questions-wrapper {
@@ -118,6 +125,7 @@
                 <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Help">Help</a></li>
             </ul>
          </nav>
+         <h1>Answer These Questions For Recommended Solutions</h1>
         <main>
             
             <aside>
@@ -171,6 +179,7 @@
                                     </select> <br><br>
 
                                 </div>
+                                
 
                                 <div class="custom-select">
                                     <label for="Q5">What part of the Country do you live?:</label>
@@ -240,12 +249,12 @@
                                 </div>
 
                                 <div class="custom-select">
-                                    <label for="Q10">:</label>
+                                    <label for="Q10">Do you live with others?:</label>
 
                                     <select name="Q10" id="Q10">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
+                                        <option value="One">Yes One Other Person</option>
+                                        <option value="More">Yes A Few People</option>
+                                        <option value="None">No Live Alone</option>
                                     </select> <br><br>
                                 </div>
 
