@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Questionaire
+        </title>
+        <link rel="stylesheet" href="Questionaire.css">
+        <style>
+            label {
+                font-family: 'Times New Roman', serif;
+                font-size: 1.2rem;
+                color: #333333;
+            }
+
+            .questions-wrapper {
+                display:flex;
+                justify-content: space-between;
+                gap:40px;
+                max-width: 1400px;
+                margin: 0 auto;
+                align-items: flex-start;
+            }
+
+            .questions-column {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .custom-select {
+                position: relative;
+                font-family: Ryman Eco;
+                width: auto;
+                min-width: 200px;
+                max-width: 250px;
+                margin-bottom: 20px;
+            }
+
+            .drop-up .select-items {
+                top: auto;
+                bottom: 100%;
+                border-radius: 4px 4px 0 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .custom-select select {
+                display: none;
+            }
+
+            .select-selected{
+                position: relative;
+                background-color:forestgreen;
+                color: #ffffff;
+                padding: 10px 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                user-select: none;
+            }
+
+            .select-selected:after {
+                position: absolute;
+                content: "";
+                top: 14px;
+                right: 15px;
+                width: 0;
+                height: 0;
+                border: 6px solid transparent;
+                border-color: #fff transparent transparent transparent;
+                z-index: 99;
+                pointer-events: none;
+
+            }
+
+
+            .select-selected.select-arrow-active:after{
+                border-color: transparent transparent #fff transparent;
+                top: 10px;
+            }
+
+            .select-items div,.select-selected {
+                color: #ffffff;
+                padding: 8px 16px;
+                border: 1px solid transparent;
+                border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+                cursor: pointer;
+                user-select: none;
+            }
+            
+            .select-items {
+                position: absolute;
+                background-color: forestgreen;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                border-radius: 0 0 4px 4px;
+            }
+
+            .select-hide {
+                display: none;
+            }
+
+            .select-items div:hover, .same-as-selected {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>C</header>
+        <nav>
+           
+            <ul class="navlist">
+                <li><a rel="noopener" href="SavingOptions.html">Home</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Help">Help</a></li>
+            </ul>
+         </nav>
+        <main>
+            
+            <aside>
+            </aside>
+            <section>
+                <form class="center" novalidate>
+                    <div class="questions-wrapper">
+                        <div class="questions-column">
+                            <div class="custom-select">
+                                <label for="Q1">What is your approximate income threshold?:</label>
+
+                                    <select name="Q1" id="Q1">
+                                        <option value="Lower Class">Lower Class</option>
+                                        <option value="Middle Class">Middle Class</option>
+                                        <option value="Upper Class">Upper Class</option>
+                                        <option value="High Upper Class">High Upper Class</option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q2">How much budget can you allocate?:</label>
+
+                                    <select name="Q2" id="Q2">
+                                        <option value="None">£0</option>
+                                        <option value="Under">Under £1000</option>
+                                        <option value="Mid">£1000 - £10,000</option>
+                                        <option value="Upper">£10,000+</option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q3">Do you pay rent?:</label>
+
+                                    <select name="Q3" id="Q3">
+                                        <option value=True>Yes</option>
+                                        <option value=False>No</option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q4">What part of the UK do you live?:</label>
+
+                                    <select name="Q4" id="Q4">
+                                        <option value="England">England</option>
+                                        <option value="Scotland">Scotland</option>
+                                        <option value="Wales">Wales</option>
+                                        <option value="Nothern Ireland">Nothern Ireland</option>
+                                        <option value="Outside">Outside Of The UK</option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q5">What part of the Country do you live?:</label>
+
+                                    <select name="Q5" id="Q5">
+                                        <option value="Capital">The Capital City</option>
+                                        <option value="Major">A Major City</option>
+                                        <option value="Small">A Smaller City</option>
+                                        <option value="Outskirt">The Outskirts Of A City</option>
+                                        <option value="Countryside">The Countryside</option>
+
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                        
+                                    <label for="Q6">How do you currently heat your home?:</label>
+
+                                    <select name="Q6" id="Q6">
+                                        <option value="Fossil">Natural Gas / Oil furnace</option>
+                                        <option value="Electric">Electric resistance heating</option>
+                                        <option value="Pump">Heat pump</option>
+                                        <option value="Wood">Wood or Pellet stove</option>
+
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q7">How do you heat your water?:</label>
+
+                                    <select name="Q7" id="Q7">
+                                        <option value="Tank">Standard tank</option>
+                                        <option value="Tankless">Tankless / On-demand system</option>
+                                        <option value="Thermal">Solar thermal</option>
+                                        <option value="IDK">I don't know</option>
+
+                                    </select> <br><br>
+                        
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q8">Who is your electricity provider?:</label>
+
+                                    <select name="Q8" id="Q8">
+                                        <option value="Grid">Standard grid mix</option>
+                                        <option value="Green">Green energy plan</option>
+                                        <option value="Offgrid">Off-grid</option>
+                                        <option value="IDC">I don't check my provider</option>
+
+                                    </select> <br><br>
+                        
+                                </div>
+                        </div>
+                        <div class="questions-column">
+                            <div class="custom-select">
+                                <label for="Q9">How do you travel around?:</label>
+
+                                    <select name="Q9" id="Q9">
+                                        <option value="Car">Car</option>
+                                        <option value="Public">Public Transport</option>
+                                        <option value="Cycle">Cycle</option>
+                                        <option value="Walk">Walk / Jog</option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q10">:</label>
+
+                                    <select name="Q10" id="Q10">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                <label for="Q11">:</label>
+
+                                    <select name="Q11" id="Q11">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q12">:</label>
+
+                                    <select name="Q12" id="Q12">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                <label for="Q13">:</label>
+
+                                    <select name="Q13" id="Q13">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q14">:</label>
+
+                                    <select name="Q14" id="Q14">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                <label for="Q15">:</label>
+
+                                    <select name="Q15" id="Q15">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q16">:</label>
+
+                                    <select name="Q16" id="Q16">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+                        </div>
+                        <div class="questions-column">
+                            <div class="custom-select">
+                                <div class="custom-select">
+                                <label for="Q17">:</label>
+
+                                    <select name="Q17" id="Q17">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q18">:</label>
+
+                                    <select name="Q18" id="Q18">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                <label for="Q19">:</label>
+
+                                    <select name="Q19" id="Q19">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q20">:</label>
+
+                                    <select name="Q20" id="Q20">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                <label for="Q21">:</label>
+
+                                    <select name="Q21" id="Q21">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q22">:</label>
+
+                                    <select name="Q22" id="Q22">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+                                </div>
+
+                                <div class="custom-select">
+                                <label for="Q23">:</label>
+
+                                    <select name="Q23" id="Q23">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select> <br><br>
+
+                                </div>
+
+                                <div class="custom-select">
+                                    <label for="Q24">Are you a Vegan?:</label>
+
+                                    <select name="Q24" id="Q24">
+                                        <option value=True>Yes</option>
+                                        <option value=False>No</option>
+                                    </select> <br><br>
+                                </div>
+                        </div>
+                    </div>
+
+                    
+
+                        
+
+
+                        
+
+                    
+                    
+                </form>
+                 <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            x[i].appendChild(a);
+            
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            
+            for (j = 0; j < ll; j++) {
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function(e) {
+                    var y, i, k, s, h, sl, yl;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    sl = s.length;
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < sl; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            yl = y.length;
+                            for (k = 0; k < yl; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+                            break;
+                        }
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            
+            a.addEventListener("click", function(e) {
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        }
+
+        function closeAllSelect(elmnt) {
+            var x, y, i, xl, yl, arrNo = [];
+            x = document.getElementsByClassName("select-items");
+            y = document.getElementsByClassName("select-selected");
+            xl = x.length;
+            yl = y.length;
+            for (i = 0; i < yl; i++) {
+                if (elmnt == y[i]) {
+                    arrNo.push(i)
+                } else {
+                    y[i].classList.remove("select-arrow-active");
+                }
+            }
+            for (i = 0; i < xl; i++) {
+                if (arrNo.indexOf(i)) {
+                    x[i].classList.add("select-hide");
+                }
+            }
+        }
+        document.addEventListener("click", closeAllSelect);
+    </script>
+                <div class="center" id="hiddenSection">
+                    <p id="hiddenParagraph"></p>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
