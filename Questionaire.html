@@ -36,6 +36,14 @@
                 text-decoration: none;
             }
 
+            .submit-container {
+                display: flex;
+                justify-content: flex-end;
+                max-width: 1400px;
+                margin: 20px auto;
+                padding-right: 10px;
+            }
+
             .questions-wrapper {
                 display:flex;
                 justify-content: space-between;
@@ -136,10 +144,10 @@
         <nav>
            
             <ul class="navlist">
-                <li><a rel="noopener" href="SavingOptions.html">Home</a></li>
+                <li><a rel="noopener" href="Home.html">Home</a></li>
                 <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
                 <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
-                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Help">Help</a></li>
+                <li><a rel="noopener" href="Feedback.html">Feedback</a></li>
             </ul>
          </nav>
          <h1>Answer These Questions For Recommended Solutions</h1>
@@ -297,7 +305,9 @@
 
                                 
                     </div>
-                    <button type="submit" id="submitBtn"><a rel="noopener" href="SavingOptions.html">Submit</a></button>
+                    <div class="submit-container">
+                        <button type="submit" id="submitBtn"><a rel="noopener" href="SavingOptions.html">Submit</a></button>
+                    </div>
 
                     
 
