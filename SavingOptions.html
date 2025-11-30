@@ -71,10 +71,10 @@
     <nav class="navigationbar">
         <div class="navigationbardiv">
             <ul>
-                <li class="options"><a href="#" style="color: white;">Option1</a></li>
-                <li class="options"><a href="#" style="color: white;">Option2</a></li>
-                <li class="options"><a href="#" style="color: white;">Option3</a></li>
-                <li class="options"><a href="#" style="color: white;">Option4</a></li>
+                <li class="options"><a href="#" style="color: white;">Home</a></li>
+                <li class="options"><a href="#" style="color: white;">Login</a></li>
+                <li class="options"><a href="#" style="color: white;">Register</a></li>
+                <li class="options"><a href="#" style="color: white;">Help</a></li>
             </ul>
         </div>
     </nav>
@@ -106,6 +106,14 @@
                 <header style="font-weight: bold;">Recommended</header>
                 <div id="recommend"></div>
             </div>
+
+            <div>
+                <form style="display: flex; justify-content: center;" id="formID">
+                    <input type="text" id="userchoice" name="userchoice" placeholder="Enter ONE of the options provided here..." 
+                    style="width: 29%; border-radius: 0px; padding: 5px; margin-bottom: 30px;">
+                    <input type="submit" style="border-radius: 0px; padding: 5px; margin-bottom: 30px;">
+                </form>
+            </div>
         </div>
 
     </div>
@@ -117,10 +125,108 @@
     <!--Javascript-->
     <script>
         //Recieves data from other webpage and orders them from best to worst in an array
+        let userclass = 0;
+        let budget = 1;
+        let rent = false;
+
+        let renewableOptions = {solarpanels:0 , LEDs:0 , Insulation:0 , HeatedFloors:0 , SwitchingTravel:0 , ElectricMeter:0};
+        
+        if(userclass == 0){
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.LEDs += 2;
+            renewableOptions.ElectricMeter += 1;
+        }
+        else if(userclass == 1){
+            renewableOptions.Insulation += 1
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.LEDs += 1;
+            renewableOptions.ElectricMeter += 1;
+        }
+        else if(userclass == 2){
+            renewableOptions.Insulation += 1;
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.ElectricMeter += 1;
+            renewableOptions.solarpanels += 1;
+        }
+        else if(userclass == 3){
+            renewableOptions.HeatedFloors += 2;
+            renewableOptions.solarpanels += 2;
+            renewableOptions.Insulation += 1;
+        }
+
+        if(budget == 1){
+            renewableOptions.Insulation += 1
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.LEDs += 1;
+            renewableOptions.ElectricMeter += 1;
+        }
+        if(budget == 2){
+            renewableOptions.Insulation += 1
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.LEDs += 1;
+            renewableOptions.ElectricMeter += 1;
+            renewableOptions.solarpanels += 1;
+        }
+        if(budget == 3){
+            renewableOptions.Insulation += 1
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.LEDs += 1;
+            renewableOptions.ElectricMeter += 1;
+            renewableOptions.solarpanels += 1;
+            renewableOptions.HeatedFloors += 2;
+        }
+
+        if (rent == true){
+            renewableOptions.LEDs += 2;
+            renewableOptions.ElectricMeter += 1;
+            renewableOptions.HeatedFloors = 0;
+            renewableOptions.Insulation = 0;
+            renewableOptions.SwitchingTravel += 2;
+            renewableOptions.solarpanels = 0;
+        }
+
+        if (budget == 0){
+            renewableOptions.solarpanels = 0;
+            renewableOptions.LEDs = 0;
+            renewableOptions.Insulation = 0;
+            renewableOptions.HeatedFloors = 0;
+            renewableOptions.SwitchingTravel += 1;
+            renewableOptions.ElectricMeter = 0;
+        }
+
+        let orderedOptions = [];
+        let other = [];
+
+        for(let option in renewableOptions){
+            if(renewableOptions[option] == 0){
+                other.push({name: option, points: renewableOptions[option]})
+            }
+            else{
+                orderedOptions.push({name: option, points: renewableOptions[option]})
+            }
+        }
+        for(let x = 0; x < orderedOptions.length; x++){
+            for(let y = x+1; y < orderedOptions.length; y++){
+                if(orderedOptions[x].points < orderedOptions[y].points){
+                    let temp = orderedOptions[x];
+                    orderedOptions[x] = orderedOptions[y];
+                    orderedOptions[y] = temp;
+                }
+            }
+        }
+
+        let recommendedOptions = [];
+        for(let i = 0; i < orderedOptions.length; i++){
+            recommendedOptions.push(orderedOptions[i].name);
+        }
+        let notRecommendedOptions = [];
+        for(let k = 0; k < other.length; k++){
+            notRecommendedOptions.push(other[k].name);
+        }
+
 
 
         //Dynamically loads sections with carbon saving options
-        let notRecommendedOptions = ['test1','test2','a','b','c','d','e','f'];
         for(let i = 0; i<notRecommendedOptions.length; i++){
             const notRecommendedContainer = document.getElementById('dontrecommend');
             const showOption = document.createElement('div')
@@ -129,14 +235,16 @@
             notRecommendedContainer.appendChild(showOption);
         }
 
-        let orderedOptions = ['Insulation','Solar Panels','a','b','c','d','e','f'];
-        for(let i = 0; i<orderedOptions.length; i++){
+        for(let i = 0; i<recommendedOptions.length; i++){
             const recommendedContainer = document.getElementById('recommend');
             const showOption = document.createElement('div');
             showOption.className = 'outputtedoptions';
-            showOption.textContent = orderedOptions[i];
+            showOption.textContent = recommendedOptions[i];
             recommendedContainer.appendChild(showOption);
         }
+
+        //Validating input
+
     </script>
 
 </body>
