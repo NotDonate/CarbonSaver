@@ -19,6 +19,23 @@
                 color: rgb(0, 78, 35)
             }
 
+            button {
+                background-color: forestgreen;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+            }
+
+            button:hover {
+                background-color: rgb(1, 77, 1);
+                cursor: pointer;
+            }
+
+            button a {
+                color: white;
+                text-decoration: none;
+            }
+
             .questions-wrapper {
                 display:flex;
                 justify-content: space-between;
@@ -179,8 +196,8 @@
                                     </select> <br><br>
 
                                 </div>
-                                
-
+                            </div>
+                            <div class="questions-column">
                                 <div class="custom-select">
                                     <label for="Q5">What part of the Country do you live?:</label>
 
@@ -259,161 +276,28 @@
                                 </div>
 
                                 <div class="custom-select">
-                                <label for="Q11">:</label>
+                                    <label for="Q11">Are you a Vegan?:</label>
 
                                     <select name="Q11" id="Q11">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q12">:</label>
-
-                                    <select name="Q12" id="Q12">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-                                </div>
-
-                                <div class="custom-select">
-                                <label for="Q13">:</label>
-
-                                    <select name="Q13" id="Q13">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q14">:</label>
-
-                                    <select name="Q14" id="Q14">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-                                </div>
-
-                                <div class="custom-select">
-                                <label for="Q15">:</label>
-
-                                    <select name="Q15" id="Q15">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q16">:</label>
-
-                                    <select name="Q16" id="Q16">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-                                </div>
-                        </div>
-                        <div class="questions-column">
-                            <div class="custom-select">
-                                <div class="custom-select">
-                                <label for="Q17">:</label>
-
-                                    <select name="Q17" id="Q17">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q18">:</label>
-
-                                    <select name="Q18" id="Q18">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-                                </div>
-
-                                <div class="custom-select">
-                                <label for="Q19">:</label>
-
-                                    <select name="Q19" id="Q19">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q20">:</label>
-
-                                    <select name="Q20" id="Q20">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-                                </div>
-
-                                <div class="custom-select">
-                                <label for="Q21">:</label>
-
-                                    <select name="Q21" id="Q21">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q22">:</label>
-
-                                    <select name="Q22" id="Q22">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-                                </div>
-
-                                <div class="custom-select">
-                                <label for="Q23">:</label>
-
-                                    <select name="Q23" id="Q23">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select> <br><br>
-
-                                </div>
-
-                                <div class="custom-select">
-                                    <label for="Q24">Are you a Vegan?:</label>
-
-                                    <select name="Q24" id="Q24">
                                         <option value=True>Yes</option>
                                         <option value=False>No</option>
                                     </select> <br><br>
+                                </div>>
+
+                                <div class="custom-select">
+                                    <label for="Q12">Do you use a lot of appliances?:</label>
+
+                                    <select name="Q12" id="Q12">
+                                        <option value="Lots">Yes quite a few</option>
+                                        <option value="Little">Yes but only one or two</option>
+                                        <option value="Nothing">No</option>
+                                    </select> <br><br>
                                 </div>
                         </div>
+
+                                
                     </div>
+                    <button type="submit" id="submitBtn"><a rel="noopener" href="SavingOptions.html">Submit</a></button>
 
                     
 
