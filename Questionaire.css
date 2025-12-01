@@ -7,10 +7,10 @@ body{
 }
 
 header{
-    background-image: linear-gradient(to right, limegreen , rgb(112, 219, 255));
+    background-image: linear-gradient(rgb(81, 212, 153));
     background-size: contain;
     background-position: center;
-    height:200px;
+    height:231px;
     width: 100%;
     margin: auto;
     color: white;

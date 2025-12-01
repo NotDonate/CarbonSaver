@@ -21,7 +21,7 @@
   form {align-items: center; display: flex; gap: 10px; flex-direction: column;}
 </style>
 <body>
-  <header>C</header>
+  <header><img src="Carbon Saver Logo V1.png"></header>
         <nav>
            
             <ul class="navlist">
@@ -42,10 +42,26 @@
   <input type="email" id="email" name="email" required />
   
   <label for="message">Message</label>
-  <textarea id="message" name="message" required></textarea>
-  
-  <button type="button" class="btn" onclick="sendEmail()">Send</button>
-</form>
+<textarea id="message" name="message" required></textarea>
+<p id="error" style="color:red; display:none;">Please enter a message.</p>
+
+<button type="button" class="btn" onclick="validateForm()">Send</button>
+
+<script>
+function validateForm() {
+    const input = document.getElementById("message");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";
+    } else {
+        error.style.display = "none";
+        alert("Form submitted!");
+        sendEmail();  //email message
+    }
+}
+</script>
+
 
 <p>Click the "Send" button and the information will be sent to us.</p>
 <P>Note: The Name and Email boxes are optional.</P>

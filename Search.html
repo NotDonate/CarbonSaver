@@ -10,7 +10,7 @@
   p {text-align: center; color: black;}
 </style>
 <body>
-  <header>C</header>
+  <header><img src="Carbon Saver Logo V1.png"></header>
         <nav>
            
             <ul class="navlist">
@@ -23,14 +23,29 @@
        
 <h1>Share details to your email</h1>
 <h2>Enter your email here:</h2>
+<style>
+    form {text-align: center;}
+</style>
 <form action="/action_page.php">
   <label for="emailname"></label>
-  <input type="text" id="emailname" name="emailname"><br><br>
-  <input type="submit" value="Send">
-  <style>
-    form {text-align: center;}
-  </style>
-</form>
+<input type="text" id="emailname" name="emailname">
+<p id="error" style="color:red; display:none;">Please enter an email.</p>
+
+<button type="button" onclick="validateForm()">Send</button>
+
+<script>
+function validateForm() {
+    const input = document.getElementById("emailname");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";   // show error message
+    } else {
+        error.style.display = "none";    // hide error if previously shown
+        alert("Form submitted!");       // replace this with real form submission
+    }
+}
+</script>
 
 <p>Click the "Send" button and the information will be sent to your email.</p>
 
