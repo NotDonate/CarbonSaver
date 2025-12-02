@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="Questionaire.css">
+  </head>
 <style>
-body{background: linear-gradient(to right, green , cyan);}
+  body{background-color: #caffe5;}
+  h1 {text-align: center; color: black;}
+  h2 {text-align: center; font-weight: lighter; color: black;}
+  p {text-align: center; color: black;}
 </style>
 <body>
-<style>
-  h1 {text-align: center; color: white;}
-  h2 {text-align: center; font-weight: lighter; color: white;}
-  p {text-align: center; color: white;}
-</style>
+  <header><img src="Carbon Saver Logo V1.png"></header>
+        <nav>
+           
+            <ul class="navlist">
+                <li><a rel="noopener" href="SavingOptions.html">Home</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Help">Help</a></li>
+            </ul>
+         </nav>
+       
 <h1>Share details to your email</h1>
 <h2>Enter your email here:</h2>
+<style>
+    form {text-align: center;}
+</style>
 <form action="/action_page.php">
   <label for="emailname"></label>
-  <input type="text" id="emailname" name="emailname"><br><br>
-  <input type="submit" value="Send">
-  <style>
-    form {text-align: center;}
-  </style>
-</form>
+<input type="text" id="emailname" name="emailname">
+<p id="error" style="color:red; display:none;">Please enter an email.</p>
+
+<button type="button" onclick="validateForm()">Send</button>
+
+<script>
+function validateForm() {
+    const input = document.getElementById("emailname");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";   // show error message
+    } else {
+        error.style.display = "none";    // hide error if previously shown
+        alert("Form submitted!");       // replace this with real form submission
+    }
+}
+</script>
 
 <p>Click the "Send" button and the information will be sent to your email.</p>
 
