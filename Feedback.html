@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Questionaire.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+         emailjs.init({
+            publicKey: "LhLtmoVhTBDU_kHKP",
+         });
+      })();
+    </script>
+  </head>
+<style>
+  body{background-color: #caffe5;}
+  h1 {text-align: center; color: black;}
+  h2 {text-align: center; font-weight: lighter; color: black;}
+  p {text-align: center; color: black;}
+  form {align-items: center; display: flex; gap: 10px; flex-direction: column;}
+</style>
+<body>
+  <header><img src="Carbon Saver Logo V1.png"></header>
+        <nav>
+           
+            <ul class="navlist">
+                <li><a rel="noopener" href="SavingOptions.html">Home</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Help">Help</a></li>
+            </ul>
+         </nav>
+       
+<h1>Share your feedback with us!</h1>
+<h2>Enter the details here:</h2>
+<form>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required />
+  
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
+  
+  <label for="message">Message</label>
+<textarea id="message" name="message" required></textarea>
+<p id="error" style="color:red; display:none;">Please enter a message.</p>
+
+<button type="button" class="btn" onclick="validateForm()">Send</button>
+
+<script>
+function validateForm() {
+    const input = document.getElementById("message");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";
+    } else {
+        error.style.display = "none";
+        alert("Form submitted!");
+        sendEmail();  //email message
+    }
+}
+</script>
+
+
+<p>Click the "Send" button and the information will be sent to us.</p>
+<P>Note: The Name and Email boxes are optional.</P>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
