@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -26,6 +27,7 @@ public class userChoiceHistory implements Serializable {
     @CreationTimestamp
     Date datePicked;
 
+    @NotNull
     int score;
 
     @ManyToOne(fetch = FetchType.LAZY)

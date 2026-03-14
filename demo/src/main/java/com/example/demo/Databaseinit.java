@@ -22,7 +22,7 @@ private userhistoryrepository userhistoryrepository;
     @Override
     public void run(String... args) throws Exception {
         userrepository.deleteAll();
-        user u1 = new user("nadine", "nadine@example.com", "password123");
+        user u1 = new user("John", "john@example.com", "password123");
         userrepository.save(u1);
 
         optionsrepository.deleteAll();

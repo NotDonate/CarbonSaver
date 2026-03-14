@@ -5,5 +5,4 @@ import com.example.demo.Model.options;
 
 public interface optionsrepository extends CrudRepository<options, Long> {
     options findByOptionName(String optionName);
-    
 }
