@@ -30,50 +30,71 @@ public class CarbonSaverApplication {
     }
 
     @Bean
-public CommandLineRunner commandLineRunner(
-        ApplicationContext ctx,
-        UsersRepository usersRepository,
-        OptionsRepository optionsRepository,
-        UserInformationRepository userInformationRepository,
-        UserChoiceHistoryRepository userChoiceHistoryRepository) {
-    return args -> {
+    public CommandLineRunner commandLineRunner(
+            ApplicationContext ctx,
+            UsersRepository usersRepository,
+            OptionsRepository optionsRepository,
+            UserInformationRepository userInformationRepository,
+            UserChoiceHistoryRepository userChoiceHistoryRepository) {
 
-        System.out.println("Let's inspect the beans provided by Spring Boot:");
+        return args -> {
 
-        String[] beanNames = ctx.getBeanDefinitionNames();
-        Arrays.sort(beanNames);
-        for (String beanName : beanNames) {
-            System.out.println(beanName);
-        }
+            System.out.println("Let's inspect the beans provided by Spring Boot:");
 
-        Users user = new Users();
-        user.setName("Alice");
-        user.setEmail("alice@email.com");
-        user.setPassword("pass123");
-        user.setUserType("student");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setUpdatedAt(LocalDateTime.now());
-        usersRepository.save(user);
+            String[] beanNames = ctx.getBeanDefinitionNames();
+            Arrays.sort(beanNames);
+            for (String beanName : beanNames) {
+                System.out.println(beanName);
+            }
 
-        Options option = new Options();
-        option.setOptionName("Option A");
-        optionsRepository.save(option);
+            Users user = new Users();
+            user.setName("Alice");
+            user.setEmail("alice@email.com");
+            user.setPassword("pass123");
+            user.setUserType("student");
+            user.setCreatedAt(LocalDateTime.now());
+            user.setUpdatedAt(LocalDateTime.now());
+            usersRepository.save(user);
 
-        UserInformation info = new UserInformation();
-        info.setUser(user);
-        info.setUserClass(2);
-        info.setBudget(1200);
-        info.setRent(true);
-        info.setInformationAtDate(LocalDate.now());
-        userInformationRepository.save(info);
+            Options solarPanels = new Options();
+            solarPanels.setOptionName("SolarPanels");
+            optionsRepository.save(solarPanels);
 
-        UserChoiceHistory history = new UserChoiceHistory();
-        history.setUser(user);
-        history.setOption(option);
-        history.setUserInformation(info);
-        history.setDatePicked(LocalDate.now());
-        history.setScore(85);
-        userChoiceHistoryRepository.save(history);
-    };
-}
+            Options leds = new Options();
+            leds.setOptionName("LEDs");
+            optionsRepository.save(leds);
+
+            Options insulation = new Options();
+            insulation.setOptionName("Insulation");
+            optionsRepository.save(insulation);
+
+            Options heatedFloors = new Options();
+            heatedFloors.setOptionName("HeatedFloors");
+            optionsRepository.save(heatedFloors);
+
+            Options switchingTravel = new Options();
+            switchingTravel.setOptionName("SwitchingTravel");
+            optionsRepository.save(switchingTravel);
+
+            Options electricMeter = new Options();
+            electricMeter.setOptionName("ElectricMeter");
+            optionsRepository.save(electricMeter);
+
+            UserInformation info = new UserInformation();
+            info.setUser(user);
+            info.setUserClass(2);
+            info.setBudget(1200);
+            info.setRent(true);
+            info.setInformationAtDate(LocalDate.now());
+            userInformationRepository.save(info);
+
+            UserChoiceHistory history = new UserChoiceHistory();
+            history.setUser(user);
+            history.setOption(leds);
+            history.setUserInformation(info);
+            history.setDatePicked(LocalDate.now());
+            history.setScore(85);
+            userChoiceHistoryRepository.save(history);
+        };
+    }
 }

@@ -20,7 +20,7 @@ public class UserChoiceHistory {
     private Options option;
 
     @ManyToOne
-    @JoinColumn(name = "user_information_id", nullable = false)
+    @JoinColumn(name = "user_information_id", nullable = true)
     private UserInformation userInformation;
 
     @Column(name = "date_picked")

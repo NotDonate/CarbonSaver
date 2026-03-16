@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -68,3 +69,204 @@ function validateForm() {
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Questionaire.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+         emailjs.init({
+            publicKey: "LhLtmoVhTBDU_kHKP",
+         });
+      })();
+    </script>
+  </head>
+<style>
+  body{background-color: #caffe5;}
+  h1 {text-align: center; color: black;}
+  h2 {text-align: center; font-weight: lighter; color: black;}
+  p {text-align: center; color: black;}
+  .rating {font-size: 35px}
+
+  .star {cursor: pointer; color: grey; transition: color 0.2s;}
+
+  .star.hover { color: gold;}
+
+  .star.selected {color: gold;}
+
+  form {align-items: center; display: flex; gap: 10px; flex-direction: column;}
+</style>
+<body>
+  <header><img src="Carbon Saver Logo V1.png"></header>
+        <nav>
+           
+            <ul class="navlist">
+                <li><a rel="noopener" href="Home.html">Home</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
+                <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
+                <li><a rel="noopener" href="Feedback.html">Feedback</a></li>
+            </ul>
+         </nav>
+       
+<h1>Share your feedback with us!</h1>
+<h2>Enter the details here:</h2>
+<form>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required />
+  
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
+  
+  <label for="message">Message</label>
+  <textarea id="message" name="message" required></textarea>
+  <p id="error" style="color:red; display:none;">Please enter a message.</p>
+
+  <label>Rating:</label>
+
+  <div class="rating" id="rating">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+
+  <p id="ratingError" style="color:red; display:none;">Please select a rating.</p>
+
+<button type="button" class="btn" onclick="validateForm()">Send</button>
+
+<script>
+  let rating = 0;
+
+const stars = document.querySelectorAll(".star");
+
+stars.forEach(star => {
+
+  star.addEventListener("mouseover", function () {
+    const value = this.getAttribute("data-value");
+    highlightStars(value);
+  });
+
+  star.addEventListener("mouseout", function () {
+    highlightStars(rating);
+  });
+
+  star.addEventListener("click", function () {
+    rating = this.getAttribute("data-value");
+    highlightStars(rating);
+  });
+
+});
+
+function highlightStars(value) {
+
+  stars.forEach(star => {
+    if (star.getAttribute("data-value") <= value) {
+      star.classList.add("selected");
+    } else {
+      star.classList.remove("selected");
+    }
+  });
+
+}
+function validateForm() {
+    const input = document.getElementById("message");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";
+    } else {
+        error.style.display = "none";
+        alert("Form submitted!");
+        sendFeedbackEmail();  //email message
+    }
+    if (rating == 0) {
+    document.getElementById("ratingError").style.display = "block";
+    return;
+    } else {
+    document.getElementById("ratingError").style.display = "none";
+  }
+}
+</script>
+
+
+<p>Click the "Send" button and the information will be sent to us.</p>
+<P>Note: The Name and Email boxes are optional.</P>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+
+<script>
+function sendFeedbackEmail() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const templateParams = {
+        name: name,
+        email: email,
+        subject: "User Feedback",
+        message: message,
+        rating: String(rating)
+    };
+
+    emailjs.send(
+        "service_fo5hk2a",
+        "template_j7wu0oq",
+        templateParams
+    )
+    .then(() => {
+        return fetch("http://localhost:8080/users/save-feedback", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                feedbackText: message,
+                rating: Number(rating)
+            })
+        });
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Feedback save failed with status " + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Feedback saved:", data);
+        alert("Feedback sent and saved!");
+    })
+    .catch(err => {
+        console.error("Feedback process error:", err);
+        alert("Feedback email may have sent, but database save failed.");
+    });
+}
+
+function validateForm() {
+    const input = document.getElementById("message");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";
+        return;
+    }
+
+    error.style.display = "none";
+
+    if (rating == 0) {
+        document.getElementById("ratingError").style.display = "block";
+        return;
+    } else {
+        document.getElementById("ratingError").style.display = "none";
+    }
+
+    sendFeedbackEmail();
+}
+</script>
+>>>>>>> c90aa7c (Add frontend files)

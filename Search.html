@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -50,4 +51,182 @@ function validateForm() {
 <p>Click the "Send" button and the information will be sent to your email.</p>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Saver - Send Option</title>
+
+  <link rel="stylesheet" href="Questionaire.css">
+
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init({
+    publicKey: "LhLtmoVhTBDU_kHKP"
+  });
+})();
+</script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "LhLtmoVhTBDU_kHKP",
+      });
+    })();
+  </script>
+
+  <style>
+    body{
+    height: auto;
+    background-color: #caffe5;
+    max-width: 75rem;
+    margin: auto;
+}
+
+    h1 {
+      text-align: center;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: lighter;
+      color: black;
+    }
+
+    p {
+      text-align: center;
+      color: black;
+    }
+
+    form {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header><img src="Carbon Saver Logo V1.png" alt="Carbon Saver Logo"></header>
+
+  <nav>
+    <ul class="navlist">
+      <li><a rel="noopener" href="Home.html">Home</a></li>
+      <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
+      <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
+      <li><a rel="noopener" href="Feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <h1>Share details to your email</h1>
+  <h2>Enter your email here:</h2>
+
+  <p>Your selected option: <strong id="optionDisplay">None selected</strong></p>
+
+  <form>
+    <input type="hidden" id="selectedOption" name="selectedOption">
+
+    <label for="emailname"></label>
+    <input type="text" id="emailname" name="emailname" placeholder="Enter your email">
+
+    <p id="error" style="color:red; display:none;">Please enter an email.</p>
+
+    <button type="button" onclick="validateForm()">Send</button>
+  </form>
+
+  <p>Click the "Send" button and the information will be sent to your email.</p>
+
+  <script>
+    const optionDescriptions = {
+      SolarPanels: "Install solar panels to generate renewable electricity and reduce long-term energy costs.",
+      LEDs: "Switch to LED bulbs to reduce electricity use with a cheap and easy home upgrade.",
+      Insulation: "Improve wall, loft, or floor insulation to reduce heat loss and improve energy efficiency.",
+      HeatedFloors: "Underfloor heating can improve efficiency but installation is more costly.",
+      SwitchingTravel: "Use lower-carbon transport options such as walking, cycling, or public transport.",
+      ElectricMeter: "Use a smart meter to monitor energy usage and reduce unnecessary electricity consumption."
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const selectedOption = params.get("userchoice");
+
+    if (selectedOption) {
+      document.getElementById("optionDisplay").textContent = selectedOption;
+      document.getElementById("selectedOption").value = selectedOption;
+    }
+
+    function validateForm() {
+    const input = document.getElementById("emailname");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "") {
+        error.style.display = "block";
+        return;
+    }
+
+    error.style.display = "none";
+    sendOptionEmail();
+}
+
+   
+function sendOptionEmail() {
+    const email = document.getElementById("emailname").value.trim();
+    const selectedOptionValue = document.getElementById("selectedOption").value.trim();
+
+    const optionDescriptions = {
+        SolarPanels: "Install solar panels to generate renewable electricity and reduce long-term energy costs.",
+        LEDs: "Switch to LED bulbs to reduce electricity use with a cheap and easy home upgrade.",
+        Insulation: "Improve wall, loft, or floor insulation to reduce heat loss and improve energy efficiency.",
+        HeatedFloors: "Underfloor heating can improve efficiency but installation is more costly.",
+        SwitchingTravel: "Use lower-carbon transport options such as walking, cycling, or public transport.",
+        ElectricMeter: "Use a smart meter to monitor energy usage and reduce unnecessary electricity consumption."
+    };
+
+    const templateParams = {
+        to_email: email,
+        option_name: selectedOptionValue,
+        option_description: optionDescriptions[selectedOptionValue] || "No description available."
+    };
+
+    emailjs.send(
+        "service_fo5hk2a",
+        "template_5jldjxu",
+        templateParams
+    )
+    .then(() => {
+        console.log("Email sent successfully");
+
+        return fetch("http://localhost:8080/users/save-option", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                optionName: selectedOptionValue
+            })
+        });
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Database save failed with status " + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Saved to database:", data);
+        alert("Email sent and option saved!");
+    })
+    .catch((err) => {
+        console.error("Process error:", err);
+        alert("Email sent may have worked, but database save failed.");
+    });
+}
+  </script>
+</body>
+>>>>>>> c90aa7c (Add frontend files)
 </html>
