@@ -1,253 +1,401 @@
 <!DOCTYPE html>
-
-<html>
-
-
-
+<html lang="en">
 <head>
-    <title>
-        Carbon Saver
-    </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Saver - Saving Options</title>
+  <link rel="stylesheet" href="Questionaire.css">
 
-<!--CSS contained in the style tag, some inline styling done within html tags-->
-<style>
-    *{
-    text-decoration: none; border-radius: 5px;
-    }
-    body{
-        height: auto; background-color: #caffe5; max-width: 75rem; margin: auto; font-family: "lato", sans-serif;
-    }
-    header{
-        text-align: center; background-color: green; font-size: large; padding: 5%; border-radius: 0px;
-        font-family: Georgia, 'Times New Roman', Times, serif; background-size: contain;
-    }
-    footer{
-        background-color: lightblue; border-radius: 0px; padding: 2%;
+  <style>
+    * {
+      box-sizing: border-box;
+      text-decoration: none;
     }
 
+    body {
+      margin: 0;
+      background-color: #caffe5;
+      font-family: "Lato", sans-serif;
+      color: black;
+       height: auto;
+        background-color: #caffe5;
+        max-width: 75rem;
+        margin: auto;
+}
 
-    /* This is the CSS for the navigation bar */
-    .navigationbar{
-        background: linear-gradient(to right, green, cyan); border-radius: 0px;
-    }
-    .navigationbardiv{
-        display: flex; align-items: center; justify-content: flex-end; padding-right: 15px;
-    }
-    .options{
-        list-style: none; display: inline-block; padding-left: 10px; padding-right: 10px; font-size: larger;
-        font-weight: bold;
-    }
-
-    /* This is the CSS for the main body's structure */
-    .container{
-        display: flex; height: auto;
-    }
-    /* Left side structure */
-    .leftside{
-        width: 25%; height: auto; min-height: 500px; 
-    }
-    .outputtedbadoptions{
-        width: 96%; height: 85px; margin: 5px; border: 1px solid black; display: flex; justify-content: center;
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #caffe5;
     }
 
-    /* Right side structure */
-    .rightside{
-        width: 75%; height: auto; min-height: 500px;
-    }
-    .outputtedoptions{
-        width: 98%; height: 85px; margin: 5px; border: 1px solid black; display: flex; justify-content: center; 
+    header {
+      text-align: center;
+      background-color: #59d19b;
     }
 
-</style>
+    header img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav {
+      background: linear-gradient(to right, #58b9e6, #72d6d4);
+    }
+
+    .navlist {
+      list-style: none;
+      margin: 0;
+      padding: 0 12px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .navlist li a {
+      display: block;
+      color: white;
+      padding: 14px 10px;
+      font-size: 16px;
+    }
+
+    .navlist li a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2, p {
+      text-align: center;
+      color: black;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      align-items: flex-start;
+    }
+
+    .leftside {
+      width: 30%;
+    }
+
+    .rightside {
+      width: 70%;
+    }
+
+    .panel {
+      border: 1px solid black;
+      background-color: rgba(255, 255, 255, 0.15);
+      margin-bottom: 20px;
+    }
+
+    .panel-header {
+      text-align: center;
+      font-weight: bold;
+      background-color: lightblue;
+      padding: 12px;
+      margin: 0;
+    }
+
+    .panel-content {
+      padding: 15px;
+    }
+
+    .panel-content ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .option-card {
+      border: 1px solid black;
+      margin-bottom: 12px;
+      padding: 12px;
+      background-color: white;
+    }
+
+    .option-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+
+    .option-card p {
+      text-align: left;
+      margin: 0 0 10px 0;
+      line-height: 1.4;
+    }
+
+    .option-card a {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #58b9e6;
+      color: white;
+      border-radius: 4px;
+    }
+
+    .option-card a:hover {
+      background-color: #3da7d8;
+    }
+
+    .manual-choice {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .manual-choice form {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .manual-choice input[type="text"] {
+      width: 320px;
+      padding: 8px;
+      border: 1px solid black;
+    }
+
+    .manual-choice input[type="submit"] {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: lightblue;
+      padding: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .leftside,
+      .rightside {
+        width: 100%;
+      }
+
+      .manual-choice input[type="text"] {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
-
-
 <body>
-
+  <div class="page-wrapper">
     <header>
-        <img src="Carbon Saver Logo V1.png" style="width: auto; height: auto;">
+      <img src="Carbon Saver Logo V1.png" alt="Carbon Saver logo">
     </header>
 
-    <nav class="navigationbar">
-        <div class="navigationbardiv">
-            <ul>
-                <li class="options"><a href="Home.html" style="color: white;">Home</a></li>
-                <li class="options"><a href="#" style="color: white;">Login</a></li>
-                <li class="options"><a href="#" style="color: white;">Register</a></li>
-                <li class="options"><a href="Feedback.html" style="color: white;">Feedback</a></li>
-            </ul>
-        </div>
+    <nav>
+      <ul class="navlist">
+        <li><a rel="noopener" href="Home.html">Home</a></li>
+        <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Wikipedia:New_account">Register</a></li>
+        <li><a rel="noopener" href="https://en.wikipedia.org/wiki/Login">Login</a></li>
+        <li><a rel="noopener" href="Feedback.html">Feedback</a></li>
+      </ul>
     </nav>
 
     <div class="container">
-
-        <div class="leftside">
-
-            <div style="border: 1px solid black; min-height: 200px; width: 90%; margin: auto; margin-top: 10%; height: auto;">
-                <header style="font-weight: bold;">Purpose of this page</header>
-                <ul>
-                    <li>This webpage will present all of the carbon saving options available to you as a homeowner.</li>
-                    <br>
-                    <li>Each option will be ranked by their manageability from most manageable to least in the section titled 'Recommended'.</li>
-                    <br>
-                    <li>Carbon saving options that we do not recommend will be stored in the section titled 'Not Recommended'.</li>
-                </ul>
-            </div>
-
-            <div style="border: 1px solid black; min-height: 120px; width: 90%; margin: auto; margin-top: 10%; margin-bottom: 10%; height: auto;">
-                <header style="font-weight: bold;">Not Recommended</header>
-                <div id="dontrecommend"></div>
-            </div>
-
+      <div class="leftside">
+        <div class="panel">
+          <div class="panel-header">Purpose of this page</div>
+          <div class="panel-content">
+            <ul>
+              <li>This webpage presents carbon saving options available to you as a homeowner.</li>
+              <br>
+              <li>Each option is ranked by manageability from most manageable to least in the section titled <strong>Recommended</strong>.</li>
+              <br>
+              <li>Carbon saving options that we do not recommend are stored in the section titled <strong>Not Recommended</strong>.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="rightside">
-            <div style="border: 1px solid black; min-height: 220px; width: 90%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: auto;">
-                <header style="font-weight: bold;">Recommended</header>
-                <div id="recommend"></div>
-            </div>
+        <div class="panel">
+          <div class="panel-header">Not Recommended</div>
+          <div class="panel-content" id="dontrecommend"></div>
+        </div>
+      </div>
 
-            <div>
-                <form style="display: flex; justify-content: center;" id="formID" action="Search.html">
-                    <input type="text" id="userchoice" name="userchoice" placeholder="Enter ONE of the options provided here..." 
-                    style="width: 29%; border-radius: 0px; padding: 5px; margin-bottom: 30px;">
-                    <input type="submit" style="border-radius: 0px; padding: 5px; margin-bottom: 30px;">
-                </form>
-            </div>
+      <div class="rightside">
+        <div class="panel">
+          <div class="panel-header">Recommended</div>
+          <div class="panel-content" id="recommend"></div>
         </div>
 
+        <div class="manual-choice">
+          <form id="formID" action="Search.html">
+            <input
+              type="text"
+              id="userchoice"
+              name="userchoice"
+              placeholder="Enter ONE of the options provided here..."
+            >
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
     </div>
 
     <footer>
-        Carbon Saver
+      Carbon Saver
     </footer>
+  </div>
 
-    <!--Javascript-->
-    <script>
-        //Recieves data from other webpage and orders them from best to worst in an array. Currently using these placeholder variables until we do backend.
-        let userclass = 1;
-        let budget = 2;
-        let rent = false;
+  <script>
+    // Placeholder questionnaire data
+    let userclass = 1;
+    let budget = 2;
+    let rent = false;
 
-        let renewableOptions = {SolarPanels:0 , LEDs:0 , Insulation:0 , HeatedFloors:0 , SwitchingTravel:0 , ElectricMeter:0};
-        
-        if(userclass == 0){
-            renewableOptions.SwitchingTravel += 2;
-            renewableOptions.LEDs += 2;
-            renewableOptions.ElectricMeter += 1;
-        }
-        else if(userclass == 1){
-            renewableOptions.Insulation += 1
-            renewableOptions.SwitchingTravel += 1;
-            renewableOptions.LEDs += 2;
-            renewableOptions.ElectricMeter += 1;
-        }
-        else if(userclass == 2){
-            renewableOptions.Insulation += 1;
-            renewableOptions.SwitchingTravel += 1;
-            renewableOptions.ElectricMeter += 1;
-            renewableOptions.SolarPanels += 1;
-        }
-        else if(userclass == 3){
-            renewableOptions.HeatedFloors += 2;
-            renewableOptions.SolarPanels += 2;
-            renewableOptions.Insulation += 1;
-        }
+    let renewableOptions = {
+      SolarPanels: 0,
+      LEDs: 0,
+      Insulation: 0,
+      HeatedFloors: 0,
+      SwitchingTravel: 0,
+      ElectricMeter: 0
+    };
 
-        if(budget == 1){
-            renewableOptions.Insulation += 1
-            renewableOptions.SwitchingTravel += 1;
-            renewableOptions.LEDs += 1;
-            renewableOptions.ElectricMeter += 1;
-        }
-        if(budget == 2){
-            renewableOptions.Insulation += 1
-            renewableOptions.SwitchingTravel += 1;
-            renewableOptions.LEDs += 1;
-            renewableOptions.ElectricMeter += 1;
-            renewableOptions.SolarPanels += 1;
-        }
-        if(budget == 3){
-            renewableOptions.Insulation += 1
-            renewableOptions.SwitchingTravel += 1;
-            renewableOptions.LEDs += 1;
-            renewableOptions.ElectricMeter += 1;
-            renewableOptions.SolarPanels += 1;
-            renewableOptions.HeatedFloors += 2;
-        }
+    const optionDescriptions = {
+      SolarPanels: "Install solar panels to generate renewable electricity and reduce long-term energy costs.",
+      LEDs: "Switch to LED bulbs to reduce electricity use with a cheap and easy home upgrade.",
+      Insulation: "Improve wall, loft, or floor insulation to reduce heat loss and improve energy efficiency.",
+      HeatedFloors: "Underfloor heating can improve efficiency in some homes, but installation is more disruptive and costly.",
+      SwitchingTravel: "Use lower-carbon transport options such as walking, cycling, public transport, or lift sharing.",
+      ElectricMeter: "Use a smart meter or monitor energy use closely so you can identify and reduce unnecessary consumption."
+    };
 
-        if (rent == true){
-            renewableOptions.LEDs += 2;
-            renewableOptions.ElectricMeter += 1;
-            renewableOptions.HeatedFloors = 0;
-            renewableOptions.Insulation = 0;
-            renewableOptions.SwitchingTravel += 2;
-            renewableOptions.SolarPanels = 0;
+    if (userclass == 0) {
+      renewableOptions.SwitchingTravel += 2;
+      renewableOptions.LEDs += 2;
+      renewableOptions.ElectricMeter += 1;
+    } else if (userclass == 1) {
+      renewableOptions.Insulation += 1;
+      renewableOptions.SwitchingTravel += 1;
+      renewableOptions.LEDs += 2;
+      renewableOptions.ElectricMeter += 1;
+    } else if (userclass == 2) {
+      renewableOptions.Insulation += 1;
+      renewableOptions.SwitchingTravel += 1;
+      renewableOptions.ElectricMeter += 1;
+      renewableOptions.SolarPanels += 1;
+    } else if (userclass == 3) {
+      renewableOptions.HeatedFloors += 2;
+      renewableOptions.SolarPanels += 2;
+      renewableOptions.Insulation += 1;
+    }
+
+    if (budget == 1) {
+      renewableOptions.Insulation += 1;
+      renewableOptions.SwitchingTravel += 1;
+      renewableOptions.LEDs += 1;
+      renewableOptions.ElectricMeter += 1;
+    }
+
+    if (budget == 2) {
+      renewableOptions.Insulation += 1;
+      renewableOptions.SwitchingTravel += 1;
+      renewableOptions.LEDs += 1;
+      renewableOptions.ElectricMeter += 1;
+      renewableOptions.SolarPanels += 1;
+    }
+
+    if (budget == 3) {
+      renewableOptions.Insulation += 1;
+      renewableOptions.SwitchingTravel += 1;
+      renewableOptions.LEDs += 1;
+      renewableOptions.ElectricMeter += 1;
+      renewableOptions.SolarPanels += 1;
+      renewableOptions.HeatedFloors += 2;
+    }
+
+    if (rent === true) {
+      renewableOptions.LEDs += 2;
+      renewableOptions.ElectricMeter += 1;
+      renewableOptions.HeatedFloors = 0;
+      renewableOptions.Insulation = 0;
+      renewableOptions.SwitchingTravel += 2;
+      renewableOptions.SolarPanels = 0;
+    }
+
+    if (budget == 0) {
+      renewableOptions.SolarPanels = 0;
+      renewableOptions.LEDs = 0;
+      renewableOptions.Insulation = 0;
+      renewableOptions.HeatedFloors = 0;
+      renewableOptions.SwitchingTravel += 1;
+      renewableOptions.ElectricMeter = 0;
+    }
+
+    let orderedOptions = [];
+    let other = [];
+
+    for (let option in renewableOptions) {
+      if (renewableOptions[option] == 0) {
+        other.push({ name: option, points: renewableOptions[option] });
+      } else {
+        orderedOptions.push({ name: option, points: renewableOptions[option] });
+      }
+    }
+
+    for (let x = 0; x < orderedOptions.length; x++) {
+      for (let y = x + 1; y < orderedOptions.length; y++) {
+        if (orderedOptions[x].points < orderedOptions[y].points) {
+          let temp = orderedOptions[x];
+          orderedOptions[x] = orderedOptions[y];
+          orderedOptions[y] = temp;
         }
+      }
+    }
 
-        if (budget == 0){
-            renewableOptions.SolarPanels = 0;
-            renewableOptions.LEDs = 0;
-            renewableOptions.Insulation = 0;
-            renewableOptions.HeatedFloors = 0;
-            renewableOptions.SwitchingTravel += 1;
-            renewableOptions.ElectricMeter = 0;
-        }
+    let recommendedOptions = orderedOptions.map(option => option.name);
+    let notRecommendedOptions = other.map(option => option.name);
 
-        let orderedOptions = [];
-        let other = [];
+    function createOptionCard(optionName) {
+      const card = document.createElement("div");
+      card.className = "option-card";
 
-        for(let option in renewableOptions){
-            if(renewableOptions[option] == 0){
-                other.push({name: option, points: renewableOptions[option]})
-            }
-            else{
-                orderedOptions.push({name: option, points: renewableOptions[option]})
-            }
-        }
-        for(let x = 0; x < orderedOptions.length; x++){
-            for(let y = x+1; y < orderedOptions.length; y++){
-                if(orderedOptions[x].points < orderedOptions[y].points){
-                    let temp = orderedOptions[x];
-                    orderedOptions[x] = orderedOptions[y];
-                    orderedOptions[y] = temp;
-                }
-            }
-        }
+      const title = document.createElement("h3");
+      title.textContent = optionName;
 
-        let recommendedOptions = [];
-        for(let i = 0; i < orderedOptions.length; i++){
-            recommendedOptions.push(orderedOptions[i].name);
-        }
-        let notRecommendedOptions = [];
-        for(let k = 0; k < other.length; k++){
-            notRecommendedOptions.push(other[k].name);
-        }
+      const description = document.createElement("p");
+      description.textContent = optionDescriptions[optionName] || "No description available yet.";
 
+      const link = document.createElement("a");
+      link.href = `Search.html?userchoice=${encodeURIComponent(optionName)}`;
+      link.textContent = "Send this option to my email";
 
+      card.appendChild(title);
+      card.appendChild(description);
+      card.appendChild(link);
 
-        //Dynamically loads sections with carbon saving options
-        for(let i = 0; i<notRecommendedOptions.length; i++){
-            const notRecommendedContainer = document.getElementById('dontrecommend');
-            const showOption = document.createElement('div')
-            showOption.className = 'outputtedbadoptions';
-            showOption.textContent = notRecommendedOptions[i];
-            notRecommendedContainer.appendChild(showOption);
-        }
+      return card;
+    }
 
-        for(let i = 0; i<recommendedOptions.length; i++){
-            const recommendedContainer = document.getElementById('recommend');
-            const showOption = document.createElement('div');
-            showOption.className = 'outputtedoptions';
-            showOption.textContent = recommendedOptions[i];
-            recommendedContainer.appendChild(showOption);
-        }
+    const notRecommendedContainer = document.getElementById("dontrecommend");
+    notRecommendedOptions.forEach(optionName => {
+      notRecommendedContainer.appendChild(createOptionCard(optionName));
+    });
 
-    </script>
+    const recommendedContainer = document.getElementById("recommend");
+    recommendedOptions.forEach(optionName => {
+      recommendedContainer.appendChild(createOptionCard(optionName));
+    });
+  </script>
 
+  <script>
+  window.onload = function() {
+    const score = sessionStorage.getItem('totalScore');
+    if (score) {
+        document.getElementById('scoreDisplay').innerText = 'Your Carbon Score: ' + score;
+    }
+  };
+  </script>
+
+  <h2 id="scoreDisplay"></h2>
 </body>
-
-
-
 </html>
